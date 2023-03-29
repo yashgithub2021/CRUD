@@ -1,0 +1,66 @@
+<div class="container my-5">
+    <div class="container my-5 text-center">
+        <form #frmData="ngForm" class="text-center " (ngSubmit)="addUser(frmData.value)">
+            <div class="row">
+                <div class="mb-3 mx-3 col">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" ngModel class="form-control" name="name" id="name">
+                </div>
+                <div class="mb-3 mx-3 col">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" ngModel class="form-control" name="email" id="email"
+                        aria-describedby="emailHelp">
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 mx-3 col">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="tel" ngModel class="form-control" name="phone" id="phone" aria-describedby="phone">
+                </div>
+                <div class="mb-3 mx-3 col">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" ngModel class="form-control" name="city" id="city">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary mx-3 ">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container my-5">
+        <table class="table table-dark table-striped text-center">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let d of data">
+                    <td>{{d.id}}</td>
+                    <td>{{d.name}}</td>
+                    <td>{{d.email}}</td>
+                    <td>{{d.phone}}</td>
+                    <td>{{d.city}}</td>
+                    <td class="d-flex justify-content-evenly">
+                        <div>
+                            <i class="fa-solid fa-pen-to-square fa-xl" style="color: #0075fa; cursor:pointer "
+                                data-toggle="tooltip" title="Edit"></i>
+                        </div>
+                        <div>
+                            <i (click)="delete(d.id)" class="fa-solid fa-trash fa-xl"
+                                style="color: #fa0000; cursor:pointer" data-toggle="tooltip" title="Delete"></i>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
