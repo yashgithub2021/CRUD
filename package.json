@@ -3,10 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve -o",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "backend": "cd src/app/shared/api && json-server --watch db.json",
+    "start_project": "concurrently \"npm start\" \"npm run backend\" "
   },
   "private": true,
   "dependencies": {
@@ -19,6 +21,7 @@
     "@angular/platform-browser": "^15.2.4",
     "@angular/platform-browser-dynamic": "^15.2.4",
     "@angular/router": "^15.2.4",
+    "concurrently": "^8.0.1",
     "ngx-bootstrap": "^10.3.0",
     "rxjs": "~7.8.0",
     "zone.js": "~0.11.4"
