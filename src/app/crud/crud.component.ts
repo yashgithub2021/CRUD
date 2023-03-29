@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { UserService } from '../shared/services/user.service';
 import { NgForm } from '@angular/forms'
-
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { ActivatedRoute } from '@angular/router';
+import { EditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-crud',
   templateUrl: './crud.component.html',
-  styleUrls: ['./crud.component.css']
+  styleUrls: ['./crud.component.css'],
 })
-export class CRUDComponent {
+export class CRUDComponent implements OnInit {
   data: any
 
-  constructor(private service: UserService) { }
+  UserObj: any
+  id: any
+
+  constructor(private service: UserService, private _active: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.fetchData()
@@ -39,7 +44,7 @@ export class CRUDComponent {
   //To Delete User
   delete(id: any) {
     this.service.delData(id).subscribe(() => {
-      window.location.reload()
+      this.fetchData()
     })
   }
 

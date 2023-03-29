@@ -31,4 +31,10 @@ export class UserService {
     const baseUrl = `${this.url}/${id}`
     return this.http.get(baseUrl)
   }
+
+  //Update
+  update(UserObj: any) {
+    const baseUrl = `${this.url}/${UserObj.id}`
+    return this.http.put(baseUrl, UserObj)
+  }
 }

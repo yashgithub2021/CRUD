@@ -5,23 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 //Material
-import { MatTableModule } from '@angular/material/table';
 import { CRUDComponent } from './crud/crud.component';
 import { FormsModule } from '@angular/forms'
-import { ModalModule } from 'ngx-bootstrap/modal'
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { EditComponent } from './edit/edit.component'
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    CRUDComponent
+    CRUDComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatTableModule,
     HttpClientModule,
     FormsModule,
-
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
