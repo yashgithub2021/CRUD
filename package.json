@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "ng build ",
+    "build": "ng build start_project",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "backend": "cd src/app/shared/api && json-server --watch db.json",
