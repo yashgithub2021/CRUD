@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  url = 'http://localhost:3000/data'
+  url = 'https://crud-database.onrender.com/data'
 
   constructor(private http: HttpClient) { }
 
